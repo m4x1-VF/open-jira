@@ -13,30 +13,39 @@ const Entries_INITIAL_STATE: EntriesState = {
       _id: uuidv4(),
       description: "Pendiente: Crear componente de Navbar",
       status: "pending",
-      createdAt: Date.now(),
+      createdAt: Date.now() - 10000,
     },
     {
       _id: uuidv4(),
       description: "En-Progreso Crear componente de Sidebar",
       status: "in-progress",
-      createdAt: Date.now() - 1000000,
+      createdAt: Date.now(),
     },
     {
       _id: uuidv4(),
       description: "Finalizada - Crear componente de Button",
       status: "finished",
-      createdAt: Date.now() - 100000,
+      createdAt: Date.now() - 1000000,
     },
   ],
 };
 
 export const EntriesProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(entriesReducer, Entries_INITIAL_STATE);
-
+  const addNewEntry = (description: string) => {
+    const newEntry: Entry = {
+      _id: uuidv4(),
+      description,
+      status: "pending",
+      createdAt: Date.now(),
+    };
+    dispatch({ type: "[Entry] Add-Entry", payload: newEntry });
+  };
   return (
     <EntriesContext.Provider
       value={{
         ...state,
+        addNewEntry,
       }}
     >
       {children}
