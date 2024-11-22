@@ -11,3 +11,7 @@ MongoDB URL Local:
 ```
 mongodb://localhost:27017/entriesdb
 ```
+
+## Configurar las variable de entorno
+
+Renombrar el archivo .env.example
