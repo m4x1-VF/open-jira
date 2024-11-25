@@ -8,26 +8,7 @@ export interface EntriesState {
 }
 
 const Entries_INITIAL_STATE: EntriesState = {
-  entries: [
-    {
-      _id: uuidv4(),
-      description: "Pendiente: Crear componente de Navbar",
-      status: "pending",
-      createdAt: Date.now() - 10000,
-    },
-    {
-      _id: uuidv4(),
-      description: "En-Progreso Crear componente de Sidebar",
-      status: "in-progress",
-      createdAt: Date.now(),
-    },
-    {
-      _id: uuidv4(),
-      description: "Finalizada - Crear componente de Button",
-      status: "finished",
-      createdAt: Date.now() - 1000000,
-    },
-  ],
+  entries: [],
 };
 
 export const EntriesProvider: FC = ({ children }) => {
